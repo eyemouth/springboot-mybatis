@@ -23,4 +23,11 @@ public interface CityDao {
      * @param cityName 城市名
      */
     City findByName1(@Param("cityName") String cityName);
+
+    /**
+     * 新增城市
+     *
+     * @param city
+     */
+    void addCity(@Param("city") City city);
 }

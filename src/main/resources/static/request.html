@@ -30,29 +30,28 @@
             var json = getjson();
             var msg = "您真的答案是：" + json + ",是否确认提交";
             if (confirm(msg) == true) {
-                //window.location.href = "result.html?radio=" + 5 + "checkbox=" + 2 + "&json=" + json;
-                window.location.href = "api/city?cityName=南京市";
+                window.location.href = "result.html?radio=" + 5 + "&checkbox=" + 2 + "&json=" + json;
+                //window.location.href = "api/city?cityName=南京市";
             } else {
                 return false;
             }
         }
+        function fix(num, length) {
+            return ('' + num).length < length ? ((new Array(length + 1)).join('0') + num).slice(-length) : '' + num;
+        }
         $(function () {
-            var m = 1;
-            var s = 10;
+            var m = 50;
+            var s = 5;
             setInterval(function () {
                 if (m >= 0) {
-                    if (s < 10) {
-                        $('#time').html("剩余时间：" + m + ':0' + s);
-                    } else {
-                        $('#time').html("剩余时间：" + m + ':' + s);
-                    }
+                    $('#time').html("剩余时间：" + fix(m,2) + ':' + fix(s,2));
                     s--;
                     if (s < 0) {
                         s = 59;
                         m--;
                     }
                     if (m == 0 && s < 1) {
-                        window.location.href = "result.html?radio=" + 5 + "checkbox=" + 2 + "&json=" + getjson();
+                        window.location.href = "result.html?radio=" + 5 + "&checkbox=" + 2 + "&json=" + getjson();
                     }
                 }
             }, 1000)

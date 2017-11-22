@@ -21,11 +21,19 @@
 		where city_name = #{cityName}
 	</select>
 
-	<select id="findByName1" resultMap="BaseResultMap" parameterType="java.lang.String">
+	<select id="findByName1" resultType="org.spring.springboot.domain.City">
 		select
-		city_name, description
+		id as id,
+		province_id as provinceId,
+		city_name as cityName,
+		description as description
 		from city
 		where city_name = #{cityName}
 	</select>
+
+	<insert id="addCity" parameterType="org.spring.springboot.domain.City" useGeneratedKeys="true" keyProperty="city.id">
+		insert into city(province_id,city_name,description)
+		values(#{city.provinceId}, #{city.cityName}, #{city.description})
+	</insert>
 
 </mapper>

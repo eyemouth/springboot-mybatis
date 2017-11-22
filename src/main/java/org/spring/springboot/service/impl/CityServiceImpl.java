@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  *
  * Created by bysocket on 07/02/2017.
  */
-@Service("cityServiceImpl")
+/*@Service("cityServiceImpl")
 public class CityServiceImpl implements CityService {
 
     @Autowired
@@ -21,4 +21,7 @@ public class CityServiceImpl implements CityService {
         return cityDao.findByName(cityName);
     }
 
-}
+    public void addCity(City city){
+        cityDao.addCity(city);
+    }
+}*/

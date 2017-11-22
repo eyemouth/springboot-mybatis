@@ -21,4 +21,7 @@ public class CityServiceImpl11 implements CityService {
         return cityDao.findByName1(cityName);
     }
 
+    public void addCity(City city) {
+        cityDao.addCity(city);
+    }
 }
