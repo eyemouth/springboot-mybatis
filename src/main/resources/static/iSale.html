@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>销售管理系统</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+</head>
+<body>
+<h3 style="float: left">iSale 娟娟傻瓜系统</h3>
+<br/><br/><br/>
+<hr/>
+
+<h4>商品名称  <input type="text" id="text_1" maxlength="10"></h4>
+<h4>商品描述  <input type="text" id="text_2" maxlength="24"></h4>
+
+<br/>
+<a href="addProduct.action" class="a_post">提交</a>
+
+<script>
+    $(".a_post").on("click",function(event){
+        event.preventDefault();  // 使a自带的方法失效，即无法向addStudent.action发出请求
+        $.ajax({
+            type: "POST",  // 使用post方式
+            url: "addProduct",
+            contentType:"application/json",
+            //data: JSON.stringify({param1:value1, param2:value2}),  // 参数列表，stringify()方法用于将JS对象序列化为json字符串
+            data: JSON.stringify({"productName":$("#text_1").val(), "description":$("#text_2").val()}),  // 参数列表，stringify()方法用于将JS对象序列化为json字符串
+            dataType:"json",
+            success: function(result){
+                // 请求成功后的操作
+            },
+            error: function(result){
+                // 请求失败后的操作
+            }
+        });
+    });
+</script>
+
+
+</body>
+</html>
