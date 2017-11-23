@@ -21,12 +21,9 @@ public class SaleRestController {
 
     @RequestMapping(value = "addProduct", method = RequestMethod.POST)
     public void addProduct(@RequestBody ProductDef productDef){
-/*        String productName = param.get("productName");
-        String description = param.get("description");
-        ProductDef productDef = new ProductDef();
-        productDef.setProductName(productName);
-        productDef.setDescription(description);*/
         saleService.addProduct(productDef);
-
     }
+
+
+
 }
